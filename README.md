@@ -2,19 +2,20 @@
 
 ¡Hola developer! 👋🏻 En este repo encontrarás todas las demos que te mostré durante mi Twitch con Midudev. Prepárate para aprender sobre contenedores y Docker de forma práctica y divertida. 🐳✨
 
+
 ## 🗓️ Agenda
 
-- [🤔 ¿Por qué me interesa aprender contenedores?](#por-qu%C3%A9-me-interesa-aprender-contenedores)
-- [🐳 ¿Qué es Docker?](#qu%C3%A9-es-docker)
-- [🔰 ¿Por dónde empiezo? > Docker Desktop](#por-d%C3%B3nde-empiezo--docker-desktop)
-- [🛠️ Mi primer contenedor](#mi-primer-contenedor)
-- [🌐 Cómo accedo a él desde el exterior](#cómo-accedo-a-él-desde-el-exterior)
-- [📦 Cómo creo un contenedor de mi aplicación](#cómo-creo-un-contenedor-de-mi-aplicación)
-- [🗄️ Un contenedor de una base de datos](#un-contenedor-de-una-base-de-datos)
-- [💾 Y cómo guardo los datos](#y-cómo-guardo-los-datos)
-- [🔗 Cómo conecto varios contenedores](#cómo-conecto-varios-contenedores)
-- [🧩 Docker Compose](#docker-compose)
-- [✨ Otros usos](#otros-usos)
+- [🤔 ¿Por qué me interesa aprender contenedores?](#-por-qué-me-interesa-aprender-contenedores)
+- [🐳 ¿Qué es Docker?](#-qué-es-docker)
+- [🔰 ¿Por dónde empiezo? > Docker Desktop](#-por-dónde-empiezo--docker-desktop)
+- [🛠️ Mi primer contenedor](#-mi-primer-contenedor)
+- [🌐 Cómo accedo a él desde el exterior](#-cómo-accedo-a-él-desde-el-exterior)
+- [📦 Cómo creo un contenedor de mi aplicación](#-cómo-creo-un-contenedor-de-mi-aplicación)
+- [🗄️ Un contenedor de una base de datos](#-un-contenedor-de-una-base-de-datos)
+- [💾 Y cómo guardo los datos](#-y-cómo-guardo-los-datos)
+- [🔗 Cómo conecto varios contenedores](#-cómo-conecto-varios-contenedores)
+- [🧩 Docker Compose](#-docker-compose)
+- [✨ Otros usos](#-otros-usos)
     - [💻 Dev Containers](#dev-containers)
     - [🤖 IA > Docker Model Runner](#ia--docker-model-runner)
     - [🧠 MCP Servers](#mcp-servers)
