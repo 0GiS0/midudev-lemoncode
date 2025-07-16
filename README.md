@@ -7,7 +7,7 @@
 
 - [🤔 ¿Por qué me interesa aprender contenedores?](#-por-qué-me-interesa-aprender-contenedores)
 - [🐳 ¿Qué es Docker?](#-qué-es-docker)
-- [🔰 ¿Por dónde empiezo? > Docker Desktop](#-por-dónde-empiezo--docker-desktop)
+- [🔰 ¿Por dónde empiezo? > Docker Desktop](#-por-dónde-empiezo)
 - [🛠️ Mi primer contenedor](#🛠️-mi-primer-contenedor)
 - [🌐 Cómo accedo a él desde el exterior](#-cómo-accedo-a-él-desde-el-exterior)
 - [📦 Cómo creo un contenedor de mi aplicación](#-cómo-creo-un-contenedor-de-mi-aplicación)
@@ -34,7 +34,7 @@ Docker es tanto una empresa como un software. Cuando hablamos de Docker, nos ref
 
 ---
 
-### 🔰 ¿Por dónde empiezo? > Docker Desktop
+### 🔰 ¿Por dónde empiezo?
 
 Lo más sencillo para empezar es instalar [Docker Desktop](https://www.docker.com/products/docker-desktop/). Es una app gráfica para gestionar tus contenedores fácilmente. Una vez instalada, verás el icono de Docker 🐳 en tu barra de tareas y podrás crear, iniciar, detener y eliminar contenedores, además de ver logs y estadísticas.
 
