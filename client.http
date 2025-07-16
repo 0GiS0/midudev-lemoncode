@@ -1,0 +1,94 @@
+
+
+@baseUrl = http://localhost:3000/api
+@contentType = application/json
+
+###
+# Obtener todos los héroes
+GET {{baseUrl}}/heroes
+Accept: {{contentType}}
+
+###
+# Obtener un héroe por ID (ejemplo: 1)
+GET {{baseUrl}}/heroes/1
+Accept: {{contentType}}
+
+###
+# Crear héroe: Spider-Man (Marvel)
+POST {{baseUrl}}/heroes
+Content-Type: {{contentType}}
+
+{
+  "name": "Spider-Man",
+  "power": "Poderes arácnidos, sentido arácnido, fuerza sobrehumana",
+  "universe": "Marvel",
+  "isActive": true
+}
+
+###
+# Crear héroe: Batman (DC)
+POST {{baseUrl}}/heroes
+Content-Type: {{contentType}}
+
+{
+  "name": "Batman",
+  "power": "Intelecto, artes marciales, tecnología avanzada",
+  "universe": "DC",
+  "isActive": true
+}
+
+###
+# Crear héroe: Wonder Woman (DC)
+POST {{baseUrl}}/heroes
+Content-Type: {{contentType}}
+
+{
+  "name": "Wonder Woman",
+  "power": "Fuerza, agilidad, lazo de la verdad",
+  "universe": "DC",
+  "isActive": true
+}
+
+###
+# Crear héroe: Iron Man (Marvel)
+POST {{baseUrl}}/heroes
+Content-Type: {{contentType}}
+
+{
+  "name": "Iron Man",
+  "power": "Armadura tecnológica, genio inventor",
+  "universe": "Marvel",
+  "isActive": true
+}
+
+###
+# Obtener héroes filtrando por universo (Marvel)
+GET {{baseUrl}}/heroes?universe=Marvel
+Accept: {{contentType}}
+
+###
+# Actualizar héroe (ejemplo: Spider-Man con ID 1)
+PUT {{baseUrl}}/heroes/1
+Content-Type: {{contentType}}
+
+{
+  "name": "Spider-Man",
+  "power": "Poderes arácnidos mejorados, sentido arácnido",
+  "universe": "Marvel",
+  "isActive": true
+}
+
+###
+# Eliminar héroe (ejemplo: Batman con ID 2)
+DELETE {{baseUrl}}/heroes/2
+Accept: {{contentType}}
+
+###
+# Eliminar héroe (ejemplo: Wonder Woman con ID 3)
+DELETE {{baseUrl}}/heroes/3
+Accept: {{contentType}}
+
+###
+# Eliminar héroe (ejemplo: Iron Man con ID 4)
+DELETE {{baseUrl}}/heroes/4
+Accept: {{contentType}}
