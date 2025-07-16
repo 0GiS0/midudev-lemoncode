@@ -1,0 +1,73 @@
+services:
+  # API de Héroes
+  heroes-api:
+    build: ./app
+    container_name: heroes-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/heroes_db
+      - MONGODB_USER=heroes_user
+      - MONGODB_PASSWORD=heroes_password
+    depends_on:
+      - mongo
+    networks:
+      - heroes-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Base de datos MongoDB
+  mongo:
+    image: mongo:7-jammy
+    container_name: heroes-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin_password
+      - MONGO_INITDB_DATABASE=heroes_db
+    volumes:
+      - mongo_data:/data/db
+      - ./app/mongo-init:/docker-entrypoint-initdb.d
+    networks:
+      - heroes-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # MongoDB Express (Interfaz web para administrar MongoDB)
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: heroes-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=admin_password
+      - ME_CONFIG_MONGODB_URL=mongodb://admin:admin_password@mongo:27017/
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    depends_on:
+      - mongo
+    networks:
+      - heroes-network
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  heroes-network:
+    driver: bridge
