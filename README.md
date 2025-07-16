@@ -64,13 +64,25 @@ docker run -p 8080:80 nginx
 
 Ahora sí, abre tu navegador en `http://localhost:8080` y verás Nginx funcionando. ¡Genial! 🎉
 
+Y ahora, si quisieramos hacer lo mismo sin sacrificar tu terminal, puedes usar la opción `-d` para ejecutar el contenedor en segundo plano:
+
+```bash
+docker run -d -p 8080:80 nginx
+```
+
 ---
 
 ### 📦 Cómo creo un contenedor de mi aplicación
 
 En este repo tienes una app de ejemplo en el directorio `app` (una API REST con Node.js y Express). Para contenerizarla, necesitas un archivo `Dockerfile` con las instrucciones para construir la imagen. [Aquí puedes ver el Dockerfile](app/Dockerfile).
 
-Para crear la imagen, navega al directorio `app` y ejecuta:
+Para crear la imagen, navega al directorio `app`:
+
+```bash
+cd app
+```
+
+y ejecuta:
 
 ```bash
 docker build -t heroes-api .
@@ -82,7 +94,7 @@ Luego, crea el contenedor y expón el puerto:
 docker run -p 3000:3000 heroes-api
 ```
 
-Accede a tu API REST en `http://localhost:3000/heroes`. ¡Tu primera app propia en Docker! 🚀
+Pero ¡error! Como la mayoría de las apps, esta necesita de una base de datos para funcionar. Vamos a solucionarlo en el siguiente paso. 🚀
 
 ---
 
@@ -91,14 +103,22 @@ Accede a tu API REST en `http://localhost:3000/heroes`. ¡Tu primera app propia 
 Normalmente, tu app necesita una base de datos. Lo ideal es que esté en un contenedor separado. Por ejemplo, para MongoDB:
 
 ```bash
-docker run -p 27017:27017 mongo
+docker run --name mongo -p 27017:27017 \
+    -e MONGO_INITDB_ROOT_USERNAME=heroes_user \
+    -e MONGO_INITDB_ROOT_PASSWORD=heroes_password \
+    -d mongo
 ```
 
-Configura tu app para conectar a la base de datos, por ejemplo en el archivo `.env`:
+Como puedes ver, a un contenedor se le pueden pasar variables de entorno para configurarlo. En este caso, estamos creando un usuario y contraseña para MongoDB.
 
+Ahora ya tenenmos MongoDB corriendo en un contenedor. Puedes conectarte desde Visual Studio Code de forma sencilla usando la extensión "MongoDB for VS Code".
+
+Así que ahora podría volver a intentar ejecutar el contenedor de mi app pero esta vez conectando a la base de datos MongoDB:
+
+```bash
+docker run -p 3000:3000 --link mongo:mongo -e MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017 heroes-api
 ```
-MONGO_URI=mongodb://localhost:27017/heroes
-```
+De esta forma tan sencilla, mi app ya puede conectarse a MongoDB. ¡Y listo! Ahora tienes tu app y base de datos corriendo en contenedores. 🎉
 
 ---
 
@@ -112,17 +132,6 @@ docker run -p 27017:27017 -v mongo-data:/data/db mongo
 
 Así los datos se guardan en el volumen `mongo-data` y no se pierden. ¡Tus datos a salvo! 🛡️
 
----
-
-### 🔗 Cómo conecto varios contenedores
-
-Puedes conectar contenedores usando la opción `--link`:
-
-```bash
-docker run -p 3000:3000 --link mongo:mongo heroes-api
-```
-
-Esto enlaza tu app con MongoDB usando el alias `mongo`. También puedes usar redes personalizadas o Docker Compose para conexiones más avanzadas. ¡Lo veremos en el bootcamp! 💛
 
 ---
 
