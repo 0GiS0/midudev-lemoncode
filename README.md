@@ -7,7 +7,7 @@
 
 - [🤔 ¿Por qué me interesa aprender contenedores?](#-por-qué-me-interesa-aprender-contenedores)
 - [🐳 ¿Qué es Docker?](#-qué-es-docker)
-- [🔰 ¿Por dónde empiezo? > Docker Desktop](#-por-dónde-empiezo)
+- [🔰 ¿Por dónde empiezo?](#-por-dónde-empiezo)
 - [🛠️ Mi primer contenedor](#🛠️-mi-primer-contenedor)
 - [🌐 Cómo accedo a él desde el exterior](#-cómo-accedo-a-él-desde-el-exterior)
 - [📦 Cómo creo un contenedor de mi aplicación](#-cómo-creo-un-contenedor-de-mi-aplicación)
