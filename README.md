@@ -276,6 +276,12 @@ cd ..
 docker ai "¿Puedes revisar mi archivo compose.yml y decirme si hay algo que pueda mejorar?"
 ```
 
+O incluso, por qué no, podemos pedirle que nos de recomendaciones para mejorar la seguridad de nuestra imagen:
+
+```bash
+docker ai "¿Puedes darme recomendaciones para mejorar la seguridad de la imagen heroes-api?"
+```
+
 ---
 
 ### ✨ Otros usos
