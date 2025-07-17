@@ -223,6 +223,12 @@ Para usarlo, asegúrate de tener Docker Compose instalado (viene con Docker Desk
 docker compose up
 ```
 
+Pero eso no es todo, imaginate que además quieres seguir modificando tu app mientras Docker Compose hace su trabajo y que el contenedor se actualice automáticamente. Para ello, puedes usar la opción `--watch`:
+
+```bash
+docker compose up --watch
+```
+
 ---
 
 ### ✨ Otros usos
