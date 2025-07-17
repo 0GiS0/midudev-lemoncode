@@ -231,6 +231,53 @@ docker compose up --watch
 
 ---
 
+### 🧠 IA, IA everywhere 🚀
+
+Por supuesto, no podemos olvidarnos de que la Inteligencia Artificial está everywhere hoy en día. Y en este sentido Docker no ha querido quedarse a atrás. Cada semana tenemos actualizaciones de esta herramienta proporcionado nuevas funcionales y mejoras en este sentido.
+A día de hoy se está enfocando en tres áreas principales:
+
+#### Ask Gordon
+
+Docker ha integrado un asistente de IA llamado Gordon que te ayuda a interactuar con tu entorno Docker. Puedes hacerle preguntas sobre tus contenedores, imágenes y más. Este tiene un apartado directamente en Docker Desktop donde no solo puedes hacerle preguntas sobre Docker y tu entorno sino que también puedes integrarlo con los famosos MCP Servers, para dotar a este de herramientas que le ayuden a responderte mejor.
+
+También puedes usarlo directamente de el terminal usando `docker ai`:
+
+```bash
+docker ai "¿Cuántos contenedores tengo?"
+```
+
+Puedes comprobar que esto es cierto con el comando:
+
+```bash
+docker ps -a
+```
+
+También puedes pedirle algo un poquito más elaborado, como por ejemplo que te busque un contenedor que esté parado y lo arranque:
+
+```bash
+docker ai "¿Puedes buscar el contenedor que se llama mongo dentro de los que tengo parados y arrancarlo?"
+```
+
+```bash
+docker ps
+```
+
+Pero quizás lo que más me mola de esto es que puedes pedirle que te ayude a revisar tu Dockerfile:
+
+```bash
+cd app
+docker ai "¿Puedes revisar mi Dockerfile y decirme si hay algo que pueda mejorar?"
+```
+
+O mi compose.yml, por supuesto:
+
+```bash
+cd ..
+docker ai "¿Puedes revisar mi archivo compose.yml y decirme si hay algo que pueda mejorar?"
+```
+
+---
+
 ### ✨ Otros usos
 
 Los contenedores no solo sirven para desplegar apps. Mira estos ejemplos:
