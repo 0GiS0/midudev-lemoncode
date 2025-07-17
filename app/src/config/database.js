@@ -12,12 +12,19 @@ class Database {
     }
 
     try {
-      const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/heroes_db';
-      
+      let mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/heroes_db';
+      const dbName = process.env.MONGODB_DATABASE || 'heroes_db';
+
+      // Si la URI no tiene la base de datos, añadirla
+      if (!mongoUri.match(/\/[a-zA-Z0-9_-]+$/)) {
+        mongoUri = mongoUri.replace(/\/$/, '');
+        mongoUri += `/${dbName}`;
+      }
+
       const options = {
-        maxPoolSize: 10, // Máximo número de conexiones simultáneas
-        serverSelectionTimeoutMS: 5000, // Tiempo de espera para seleccionar servidor
-        socketTimeoutMS: 45000, // Tiempo de espera para socket
+        maxPoolSize: 10,
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
       };
 
       await mongoose.connect(mongoUri, options);
