@@ -74,29 +74,19 @@ docker run -d -p 8080:80 nginx
 
 ### 📦 Cómo creo un contenedor de mi aplicación
 
-En este repo tienes una app de ejemplo en el directorio `app` (una API REST con Node.js y Express). Para contenerizarla, necesitas un archivo `Dockerfile` con las instrucciones para construir la imagen. [Aquí puedes ver el Dockerfile](app/Dockerfile).
+En este repo tienes una app de ejemplo en el directorio `app` (una API REST con Node.js y Express). 
 
-Para crear la imagen, navega al directorio `app`:
+Antes de pensar en contenerizarla, asegúrate de que funciona correctamente en tu máquina. Puedes probarla ejecutando:
 
 ```bash
 cd app
+npm install
+npm run dev
 ```
 
-y ejecuta:
+y una vez que esté corriendo, accede a `http://localhost:3000` para ver la API en acción. Y puedes usar la extensión REST Client y este archivo `client.http` para probar los endpoints.
 
-```bash
-docker build -t heroes-api .
-```
-
-Luego, crea el contenedor y expón el puerto:
-
-```bash
-docker run -p 3000:3000 heroes-api
-```
-
-Pero ¡error! Como la mayoría de las apps, esta necesita de una base de datos para funcionar. Vamos a solucionarlo en el siguiente paso. 🚀
-
----
+Pero espera! Esta aplicación necesita de una base de datos para funcionar, por lo que podemos hacer uso de imágenes de Docker de terceros para poder tener una base de datos MongoDB corriendo en un contenedor.
 
 ### 🗄️ Un contenedor de una base de datos
 
@@ -113,31 +103,125 @@ Como puedes ver, a un contenedor se le pueden pasar variables de entorno para co
 
 Ahora ya tenenmos MongoDB corriendo en un contenedor. Puedes conectarte desde Visual Studio Code de forma sencilla usando la extensión "MongoDB for VS Code".
 
+Nuestra app ya está configurada para poder buscar esta base de datos utilizando el archivo `.env` que contiene la URL de conexión a MongoDB:
+
+```
+MONGODB_URI=mongodb://heroes_user:heroes_password@localhost:27017
+```
+
+Perfecto! Ahora que hemos conseguido que nuestra app se conecte a la base de datos MongoDB, podemos hacer que nuestra app también corra en un contenedor.
+
+### Cómo creo un contenedor de mi aplicación
+
+Para contenerizar nuestra app, necesitamos crear un `Dockerfile` en el directorio `app`. [Como el que ya tenemos en este repo](app/Dockerfile). 
+
+Este está compuesto de diferentes instrucciones que le indican a Docker cómo construir la imagen de nuestra app. Aquí tienes un resumen de las instrucciones más importantes:
+
+- `FROM`: Define la imagen base (en este caso, Node.js).
+- `WORKDIR`: Establece el directorio de trabajo dentro del contenedor.
+- `COPY`: Copia archivos del host al contenedor.
+- `RUN`: Ejecuta comandos dentro del contenedor (como instalar dependencias).
+- `EXPOSE`: Expone un puerto del contenedor (en este caso, el 3000).
+- `CMD`: Define el comando por defecto que se ejecutará al iniciar el contenedor (en este caso, iniciar la app con `npm run dev`).
+
+y ejecuta:
+
+```bash
+docker build -t heroes-api .
+```
+
+Cuando este proceso se ejecuta podrás ver todo el proceso de construcción de la imagen. Si todo va bien, tendrás una imagen llamada `heroes-api` lista para usar. 🎉
+
+Pero esto es solo el primer paso. Con ello conseguimos tener una imagen que podremos usar tantas veces como contenedores queramos de nuestra app.
+
+Para ejecutar un contenedor a partir de esta imagen, usamos el comando `docker run`:
+
+```bash
+docker run -p 3000:3000 heroes-api
+```
+
+Sin embargo, este contenedor no sabe dónde está la base de datos MongoDB. Necesitamos conectarlo a ella.
+
+### 🔗 Cómo conecto varios contenedores
+
 Así que ahora podría volver a intentar ejecutar el contenedor de mi app pero esta vez conectando a la base de datos MongoDB:
 
 ```bash
 docker run -p 3000:3000 --link mongo:mongo -e MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017 heroes-api
 ```
+
 De esta forma tan sencilla, mi app ya puede conectarse a MongoDB. ¡Y listo! Ahora tienes tu app y base de datos corriendo en contenedores. 🎉
 
 ---
 
 ### 💾 Y cómo guardo los datos
 
-Por defecto, los datos de MongoDB se guardan en un volumen temporal (si borras el contenedor, se pierden). Para persistir los datos, usa un volumen:
+Pero todavía no hemos terminado, porque si en algún momento mi contenedor de MongoDB se elimina, perderé todos los datos. 😱 
+
+Por defecto, los datos de MongoDB se guardan en un volumen temporal (si borras el contenedor, se pierden). Así que vamos a configurar este un poquito mejor. Vamos a pararlo y eliminarlo:
 
 ```bash
-docker run -p 27017:27017 -v mongo-data:/data/db mongo
+docker stop mongo
+docker rm mongo
+```
+
+
+Para persistir los datos, usa un volumen:
+
+```bash
+docker run --name mongo -p 27017:27017 \
+    -e MONGO_INITDB_ROOT_USERNAME=heroes_user \
+    -e MONGO_INITDB_ROOT_PASSWORD=heroes_password \
+    -v mongo-data:/data/db \
+    -d mongo
 ```
 
 Así los datos se guardan en el volumen `mongo-data` y no se pierden. ¡Tus datos a salvo! 🛡️
 
+Para probarlo, volvamos a crear un contenedor de nuestra app:
+
+```bash
+docker run -p 3000:3000 --link mongo:mongo -e MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017 heroes-api
+```
+
+Añadamos algunos héroes a la base de datos y luego eliminemos el contenedor de MongoDB:
+
+```bash
+docker stop mongo
+docker rm mongo
+```
+
+Ahora volvamos a crear el contenedor de MongoDB con el volumen:
+
+```bash
+docker run --name mongo -p 27017:27017 \
+    -e MONGO_INITDB_ROOT_USERNAME=heroes_user \
+    -e MONGO_INITDB_ROOT_PASSWORD=heroes_password \
+    -v mongo-data:/data/db \
+    -d mongo
+```
+
+Y si ahora volvemos a ejecutar nuestra app:
+
+```bash
+docker run -p 3000:3000 --link mongo:mongo -e MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017 heroes-api
+``` 
+
+¡Verás que los héroes siguen ahí! 🎉
 
 ---
 
 ### 🧩 Docker Compose
 
+Hasta ahora hemos creado contenedores de forma individual, lo cual es genial para aprender pero puede volverse un poquito tedioso 😅. Sobre todo cuando tienes varios contenedores. Es por ello que te interesa también aprender a utilizar Docker Compose. Una herramienta que hace ya bastante tiempo forma parte de Docker que nos permite levantar entornos completos con un único comando, y que además te permite comprender mejor la relación entre los contenedores y la configuración que se necesita.
+
 Docker Compose te permite definir y ejecutar aplicaciones multi-contenedor con un solo archivo `compose.yml`. [Aquí tienes un ejemplo en este repo](compose.yml). Es ideal para proyectos con varios servicios. 🧩
+
+Para usarlo, asegúrate de tener Docker Compose instalado (viene con Docker Desktop). Luego, en el directorio raíz del repo, ejecuta:
+
+```bash
+docker compose up
+```
 
 ---
 
