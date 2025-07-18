@@ -1,0 +1,9 @@
+services:
+  ai-app:
+    build: .
+    models:
+      - llm
+
+models:
+  llm:
+    model: ai/smollm2
