@@ -1,10 +1,6 @@
 services:
   ai-app:
     build: .
-    develop:
-      watch:
-      - action: rebuild
-        path: .
     models:
       - llm
 
