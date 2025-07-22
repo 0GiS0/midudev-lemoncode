@@ -21,6 +21,8 @@ class Database {
         mongoUri += `/${dbName}`;
       }
 
+      console.log(`🔗 Conectando a MongoDB en ${mongoUri}`);
+
       const options = {
         maxPoolSize: 10,
         serverSelectionTimeoutMS: 5000,
