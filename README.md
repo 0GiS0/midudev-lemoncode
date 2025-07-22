@@ -244,7 +244,7 @@ Docker ha integrado un asistente de IA llamado Gordon que te ayuda a interactuar
 También puedes usarlo directamente de el terminal usando `docker ai`:
 
 ```bash
-docker ai "¿Cuántos contenedores tengo?"
+docker ai "Devuelveme una lista de todos los contenedores que tengo. Parados y corriendo."
 ```
 
 Puedes comprobar que esto es cierto con el comando:
