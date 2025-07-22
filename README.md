@@ -284,8 +284,16 @@ docker ai "¿Puedes darme recomendaciones para mejorar la seguridad de la imagen
 
 Y lo chulo de todo esto es que además puedes integrar Gordon con tus MCP Servers para que pueda acceder a más información y darte respuestas más precisas. Incluso haciendo uso del archivo `gordon-mcp.yml` que tienes en este repo, puedes configurar un MCP Server para que Gordon pueda acceder a más datos y mejorar sus respuestas.
 
+Como preguntarle la hora actual en Madrid:
+
 ```bash
 docker ai "¿Puedes decirme qué hora es en Madrid?"
+```
+
+O incluso si tienes tu propio MCP Server dockerizado, como el mio que te permite buscar vídeos de YouTube, puedes preguntarle directamente:
+
+```bash
+docker ai "Puedes buscarme algunos vídeos de YouTube sobre Docker en returngis"
 ```
 
 ---
