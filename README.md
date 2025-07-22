@@ -312,7 +312,7 @@ Crea entornos de desarrollo reproducibles usando contenedores. Así todo tu equi
 Ejecuta modelos de IA en contenedores, aislando recursos y facilitando la portabilidad:
 
 ```bash
-docker model run --model <model-name> --input <input-data>
+docker model run --model <model-name>
 ```
 
 Como por ejemplo:
@@ -322,13 +322,6 @@ docker model run ai/gemma3
 ```
 
 Ideal para modelos que requieren mucha memoria o recursos. 🧠
-
-#### 🧠 MCP Servers
-
-Los MCP (Model Context Protocol) Servers también pueden ejecutarse en contenedores. Docker Desktop incluye el `MCP Toolkit` para gestionarlos fácilmente. [Más info en la documentación oficial](https://docs.docker.com/desktop/mcp-toolkit/).
-
----
-
 
 ####
 
