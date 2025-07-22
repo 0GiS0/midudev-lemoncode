@@ -167,7 +167,6 @@ docker stop mongo
 docker rm mongo
 ```
 
-
 Para persistir los datos, usa un volumen:
 
 ```bash

@@ -9,7 +9,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017/heroes_db
+      - MONGODB_URI=mongodb://heroes_user:heroes_password@mongo:27017
     depends_on:
       - mongo
     networks:

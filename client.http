@@ -133,3 +133,7 @@ DELETE {{baseUrl}}/heroes/{{ironman_id}}
 Accept: {{contentType}}
 
 
+###
+# Obtener los héroes que han sobrevivido a mis pruebas 😇
+GET {{baseUrl}}/heroes
+Accept: {{contentType}}
