@@ -315,6 +315,12 @@ Ejecuta modelos de IA en contenedores, aislando recursos y facilitando la portab
 docker model run --model <model-name> --input <input-data>
 ```
 
+Como por ejemplo:
+
+```bash
+docker model run ai/gemma3
+```
+
 Ideal para modelos que requieren mucha memoria o recursos. 🧠
 
 #### 🧠 MCP Servers
@@ -322,6 +328,17 @@ Ideal para modelos que requieren mucha memoria o recursos. 🧠
 Los MCP (Model Context Protocol) Servers también pueden ejecutarse en contenedores. Docker Desktop incluye el `MCP Toolkit` para gestionarlos fácilmente. [Más info en la documentación oficial](https://docs.docker.com/desktop/mcp-toolkit/).
 
 ---
+
+
+####
+
+Y ya para terminar, otra cosa que podemos hacer es combinar estos modelos que podemos usar ahora a través de Docker Model Runner usando Docker Compose, como se puede ver en el directorio `ai-app` donde tengo una aplicación sencilla que utiliza el endpoint de Chat Completions utilizando como modelo el que le llega en una variable de entorno.
+
+```bash
+cd ai-app
+docker compose up
+```
+
 
 ### 🏁 Conclusión
 

@@ -6,4 +6,4 @@ services:
 
 models:
   llm:
-    model: ai/smollm2
+    model: ai/gemma3
