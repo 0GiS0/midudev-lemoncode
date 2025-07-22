@@ -13,7 +13,7 @@ class Database {
 
     try {
       let mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/heroes_db';
-      const dbName = process.env.MONGODB_DATABASE || 'heroes_db';
+      const dbName = process.env.MONGODB_DATABASE || '';
 
       // Si la URI no tiene la base de datos, añadirla
       if (!mongoUri.match(/\/[a-zA-Z0-9_-]+$/)) {

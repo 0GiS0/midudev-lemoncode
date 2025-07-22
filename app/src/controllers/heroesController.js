@@ -3,7 +3,7 @@ const heroesService = require('../services/heroesServiceMongo');
 const getAllHeroes = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, search, universe } = req.query;
-    
+
     const result = await heroesService.getAllHeroes({
       page: parseInt(page),
       limit: parseInt(limit),
@@ -29,7 +29,7 @@ const getAllHeroes = async (req, res, next) => {
 const getHeroById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const hero = await heroesService.getHeroById(parseInt(id));
+    const hero = await heroesService.getHeroById(id);
 
     if (!hero) {
       return res.status(404).json({
@@ -66,8 +66,8 @@ const updateHero = async (req, res, next) => {
   try {
     const { id } = req.params;
     const heroData = req.body;
-    
-    const updatedHero = await heroesService.updateHero(parseInt(id), heroData);
+
+    const updatedHero = await heroesService.updateHero(id, heroData);
 
     if (!updatedHero) {
       return res.status(404).json({
@@ -89,7 +89,7 @@ const updateHero = async (req, res, next) => {
 const deleteHero = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deleted = await heroesService.deleteHero(parseInt(id));
+    const deleted = await heroesService.deleteHero(id);
 
     if (!deleted) {
       return res.status(404).json({

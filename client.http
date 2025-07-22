@@ -9,11 +9,7 @@ GET {{baseUrl}}/heroes
 Accept: {{contentType}}
 
 ###
-# Obtener un héroe por ID (ejemplo: 1)
-GET {{baseUrl}}/heroes/1
-Accept: {{contentType}}
-
-###
+# @name addSpiderMan
 # Crear héroe: Spider-Man (Marvel)
 POST {{baseUrl}}/heroes
 Content-Type: {{contentType}}
@@ -26,6 +22,20 @@ Content-Type: {{contentType}}
 }
 
 ###
+
+# Recuperar el id del héroe creado
+@spiderman_id = {{ addSpiderMan.response.body.data.id }}
+
+###
+
+# Recuperar el héroe por ID
+GET {{baseUrl}}/heroes/{{spiderman_id}}
+Accept: {{contentType}}
+
+
+
+###
+# @name addBatman
 # Crear héroe: Batman (DC)
 POST {{baseUrl}}/heroes
 Content-Type: {{contentType}}
@@ -38,6 +48,11 @@ Content-Type: {{contentType}}
 }
 
 ###
+
+@batman_id = {{ addBatman.response.body.data.id }}
+
+###
+# @name addWonderWoman
 # Crear héroe: Wonder Woman (DC)
 POST {{baseUrl}}/heroes
 Content-Type: {{contentType}}
@@ -50,6 +65,12 @@ Content-Type: {{contentType}}
 }
 
 ###
+
+@wonderwoman_id = {{ addWonderWoman.response.body.data.id }}
+
+
+###
+# @name addIronMan
 # Crear héroe: Iron Man (Marvel)
 POST {{baseUrl}}/heroes
 Content-Type: {{contentType}}
@@ -62,33 +83,53 @@ Content-Type: {{contentType}}
 }
 
 ###
+
+@ironman_id = {{ addIronMan.response.body.data.id }}
+
+###
 # Obtener héroes filtrando por universo (Marvel)
 GET {{baseUrl}}/heroes?universe=Marvel
 Accept: {{contentType}}
 
 ###
-# Actualizar héroe (ejemplo: Spider-Man con ID 1)
-PUT {{baseUrl}}/heroes/1
+# Actualizar héroe (usar el ID del héroe creado anteriormente)
+PUT {{baseUrl}}/heroes/{{spiderman_id}}
 Content-Type: {{contentType}}
 
 {
   "name": "Spider-Man",
-  "power": "Poderes arácnidos mejorados, sentido arácnido",
+  "power": "Poderes arácnidos mejorados, sentido arácnido, telarañas orgánicas",
   "universe": "Marvel",
   "isActive": true
 }
 
 ###
-# Eliminar héroe (ejemplo: Batman con ID 2)
-DELETE {{baseUrl}}/heroes/2
+# Eliminar héroe (usar el ID del héroe creado anteriormente)
+DELETE {{baseUrl}}/heroes/{{spiderman_id}}
 Accept: {{contentType}}
 
 ###
-# Eliminar héroe (ejemplo: Wonder Woman con ID 3)
-DELETE {{baseUrl}}/heroes/3
+# Operaciones adicionales con ObjectIds dinámicos
+
+# Actualizar Batman
+PUT {{baseUrl}}/heroes/{{batman_id}}
+Content-Type: {{contentType}}
+
+{
+  "name": "Batman",
+  "power": "Intelecto superior, artes marciales, tecnología avanzada, detective",
+  "universe": "DC",
+  "isActive": true
+}
+
+###
+# Obtener Wonder Woman por ID
+GET {{baseUrl}}/heroes/{{wonderwoman_id}}
 Accept: {{contentType}}
 
 ###
-# Eliminar héroe (ejemplo: Iron Man con ID 4)
-DELETE {{baseUrl}}/heroes/4
+# Eliminar Iron Man
+DELETE {{baseUrl}}/heroes/{{ironman_id}}
 Accept: {{contentType}}
+
+

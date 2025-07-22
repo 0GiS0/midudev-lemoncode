@@ -152,6 +152,8 @@ docker run -p 3000:3000 --link mongo:mongo -e MONGODB_URI=mongodb://heroes_user:
 
 De esta forma tan sencilla, mi app ya puede conectarse a MongoDB. ¡Y listo! Ahora tienes tu app y base de datos corriendo en contenedores. 🎉
 
+Ahora puedes usar, si quieres, el archivo `client.http` que tienes en el directorio `app` para probar los endpoints de tu API.
+
 ---
 
 ### 💾 Y cómo guardo los datos

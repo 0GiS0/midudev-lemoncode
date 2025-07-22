@@ -29,8 +29,8 @@ const heroValidation = [
 
 const idValidation = [
   param('id')
-    .isInt({ min: 1 })
-    .withMessage('El ID debe ser un número entero positivo')
+    .isMongoId()
+    .withMessage('El ID debe ser un ObjectId válido de MongoDB')
 ];
 
 // Rutas
