@@ -96,7 +96,7 @@ npm install
 npm run dev
 ```
 
-y una vez que esté corriendo, accede a `http://localhost:3000` para ver la API en acción. Y puedes usar la extensión REST Client para Visual Studio Code y este archivo [client.http](client.http) para probar los endpoints.
+y una vez que esté corriendo, accede a `http://localhost:3000` para ver la API en acción. Y puedes usar [la extensión REST Client para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) y este archivo [client.http](client.http) para probar los endpoints.
 
 🚨 ¡Pero espera! Esta aplicación necesita de una base de datos para funcionar, por lo que podemos hacer uso de imágenes de Docker de terceros para poder tener una base de datos MongoDB corriendo, como no 😎, en un contenedor.
 
@@ -113,7 +113,7 @@ docker run --name mongo -p 27017:27017 \
 
 Como puedes ver, a un contenedor se le pueden pasar variables de entorno para configurarlo, utilizando el parámetro `-e` tantas veces como necesites. En este caso, estamos creando un usuario y contraseña para MongoDB.
 
-Ahora ya tenenmos MongoDB corriendo en un contenedor. Puedes conectarte desde Visual Studio Code de forma sencilla usando la extensión "MongoDB for VS Code".
+Ahora ya tenenmos MongoDB corriendo en un contenedor. Puedes conectarte desde Visual Studio Code de forma sencilla usando [la extensión MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode).
 
 Nuestra app ya está configurada para poder buscar esta base de datos utilizando el archivo `.env` que contiene la URL de conexión a MongoDB:
 
