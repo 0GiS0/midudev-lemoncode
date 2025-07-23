@@ -9,6 +9,7 @@ Si quieres volver a ver el stream puedes hacerlo desde [🎥 aquí](https://www.
 Este evento no hubiera sido posible sin el apoyo de [Lemoncode](https://lemoncode.net/) 🍋, donde soy profesora en el [Bootcamp de DevOps](https://lemoncode.net/bootcamp-devops#bootcamp-devops/inicio), el cual **comienza el 6 de Octubre de 2025**. En él no sólo aprenderás de Docker, sino también de Kubernetes, GitHub Actions, Terraform y mucho más. ¡No te lo pierdas! 🚀 **Si vas de mi parte, o la de Midudev ¡tienes un 10% de descuento!**
 
 
+
 ## 🗓️ Agenda
 
 - [🤔 ¿Por qué me interesa aprender contenedores?](#-por-qué-me-interesa-aprender-contenedores)
@@ -18,13 +19,18 @@ Este evento no hubiera sido posible sin el apoyo de [Lemoncode](https://lemoncod
 - [🌐 Cómo accedo a él desde el exterior](#-cómo-accedo-a-él-desde-el-exterior)
 - [📦 Cómo creo un contenedor de mi aplicación](#-cómo-creo-un-contenedor-de-mi-aplicación)
 - [🗄️ Un contenedor de una base de datos](#-un-contenedor-de-una-base-de-datos)
-- [💾 Y cómo guardo los datos](#-y-cómo-guardo-los-datos)
+- [Cómo creo un contenedor de mi aplicación](#cómo-creo-un-contenedor-de-mi-aplicación)
 - [🔗 Cómo conecto varios contenedores](#-cómo-conecto-varios-contenedores)
+- [💾 Y cómo guardo los datos](#-y-cómo-guardo-los-datos)
 - [🧩 Docker Compose](#-docker-compose)
+- [🧠 IA, IA everywhere 🚀](#-ia-ia-everywhere-)
+    - [Ask Gordon](#ask-gordon)
+    - [🤖 IA > Docker Model Runner](#-ia--docker-model-runner)
+    - [Sección `models` en Docker Compose](#sección-modelsen-docker-compose)
 - [✨ Otros usos](#-otros-usos)
     - [💻 Dev Containers](#dev-containers)
-    - [🤖 IA > Docker Model Runner](#ia--docker-model-runner)
-    - [🧠 MCP Servers](#mcp-servers)
+    - [Entornos aislados para evitar infecciones](#entornos-aislados-para-evitar)
+- [🏁 Conclusión](#-conclusión)
 
 ---
 
