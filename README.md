@@ -4,7 +4,10 @@
 
 ¡Hola developer! 👋🏻 En este repo encontrarás todas las demos que te mostré durante mi Twitch con Midudev. Prepárate para aprender sobre contenedores y Docker de forma práctica y divertida. 🐳✨
 
-Si quieres volver a ver el stream puedes hacerlo desde [🎥 aquí](https://www.youtube.com/watch?v=YgHOhPalas0) 
+Si quieres volver a ver el stream puedes hacerlo desde [🎥 aquí](https://www.youtube.com/watch?v=YgHOhPalas0)
+
+Este evento no hubiera sido posible sin el apoyo de [Lemoncode](https://lemoncode.net/) 🍋, donde soy profesora en el [Bootcamp de DevOps](https://lemoncode.net/bootcamp-devops#bootcamp-devops/inicio), el cual **comienza el 6 de Octubre de 2025**. En él no sólo aprenderás de Docker, sino también de Kubernetes, GitHub Actions, Terraform y mucho más. ¡No te lo pierdas! 🚀 **Si vas de mi parte, o la de Midudev ¡tienes un 10% de descuento!**
+
 
 ## 🗓️ Agenda
 
