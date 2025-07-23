@@ -318,6 +318,9 @@ O incluso si tienes tu propio MCP Server dockerizado, como el mio que te permite
 docker ai "Puedes buscarme algunos vídeos de YouTube sobre Docker en returngis"
 ```
 
+>[!IMPORTANT]
+>He subido mi propio MCP Server a Docker Hub para que puedas probarlo. Puedes encontrarlo en [0gis0/youtube-mcp-server](https://hub.docker.com/r/0gis0/youtube-mcp-server). Para que este funcione debes copiar el `.env-sample` a `.env` y añadir tu API key de YouTube. En el `.env-sample` tienes la URL de donde debes ir para generar tu API key.
+
 #### 🤖 Docker Model Runner
 
 Además de ejecutar aplicaciones, Docker también te permite ejecutar modelos de IA en contenedores. Esto es especialmente útil para modelos que requieren muchos recursos o memoria. Puedes usar el comando `docker model run` para ejecutar modelos de IA predefinidos.
