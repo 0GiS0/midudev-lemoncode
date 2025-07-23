@@ -304,7 +304,7 @@ O incluso, por qué no, podemos pedirle que nos de recomendaciones para mejorar 
 docker ai "¿Puedes darme recomendaciones para mejorar la seguridad de la imagen heroes-api?"
 ```
 
-Y lo chulo de todo esto es que además puedes integrar Gordon con tus MCP Servers para que pueda acceder a más información 😱 y darte respuestas más precisas. Incluso haciendo uso del archivo [gordon-mcp.yml](gordon-mcp.yml) 🤓! que tienes en este repo, puedes configurar un MCP Server para que Gordon pueda acceder a más datos y mejorar sus respuestas.
+Y lo chulo de todo esto es que además puedes integrar Gordon con tus MCP Servers para que pueda acceder a más información 😱 y darte respuestas más precisas. Incluso haciendo uso del archivo [gordon-mcp.yml](gordon-mcp.yml) que tienes en este repo, puedes configurar un MCP Server para que Gordon pueda acceder a más datos y mejorar sus respuestas.
 
 Como preguntarle la hora actual en Madrid:
 
@@ -319,7 +319,7 @@ docker ai "Puedes buscarme algunos vídeos de YouTube sobre Docker en returngis"
 ```
 
 >[!IMPORTANT]
->He subido mi propio MCP Server a Docker Hub para que puedas probarlo. Puedes encontrarlo en [0gis0/youtube-mcp-server](https://hub.docker.com/r/0gis0/youtube-mcp-server) ¡Ya lo he dejado modificado en el archivo `gordon-mcp.yml`. Para que este funcione debes copiar el `.env-sample` a `.env` y añadir tu API key de YouTube. En el `.env-sample` tienes la URL de donde debes ir para generar tu API key.
+>He subido mi propio MCP Server a Docker Hub para que puedas probarlo. Puedes encontrarlo en [0gis0/youtube-mcp-server](https://hub.docker.com/r/0gis0/youtube-mcp-server) ¡Ya lo he dejado modificado en el archivo `gordon-mcp.yml`🤓! Para que este funcione debes copiar el `.env-sample` a `.env` y añadir tu API key de YouTube. En el `.env-sample` tienes la URL de donde debes ir para generar tu API key.
 
 #### 🤖 Docker Model Runner
 
