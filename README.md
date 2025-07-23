@@ -360,9 +360,34 @@ Crea entornos de desarrollo reproducibles usando contenedores. Así todo tu equi
 
 
 
-### Entornos aislados para evitar 
+### 🛡️ Entornos aislados para evitar infecciones
 
-Hay un montón de herramientas que puedes lanzar dentro de contenedores para evitar infecciones en tu máquina. Por ejemplo, puedes usar contenedores para ejecutar herramientas de seguridad, análisis de código o incluso entornos de pruebas aislados. Esto te permite experimentar sin miedo a romper nada en tu sistema.
+Una de las grandes ventajas de Docker es que puedes ejecutar herramientas y servicios en entornos completamente aislados, evitando así que posibles infecciones o configuraciones problemáticas afecten a tu máquina principal. Esto es ideal para probar software, analizar archivos sospechosos o montar laboratorios de pruebas sin riesgos.
+
+Por ejemplo, puedes lanzar contenedores para:
+
+- Analizar archivos con antivirus como [ClamAV](https://hub.docker.com/r/linuxserver/clamav):
+  
+  ```bash
+  docker run -d --name=clamav linuxserver/clamav
+  ```
+
+- Montar un servidor de descargas seguro con [qBittorrent](https://hub.docker.com/r/linuxserver/qbittorrent):
+
+  ```bash
+  docker run -d --name=qbittorrent -p 8080:8080 linuxserver/qbittorrent
+  ```
+
+- Probar aplicaciones web en un entorno aislado usando [NGINX](https://hub.docker.com/r/linuxserver/nginx):
+
+  ```bash
+  docker run -d --name=nginx -p 8081:80 linuxserver/nginx
+  ```
+
+- Ejecutar herramientas de análisis de código o pentesting, como [Sonarr](https://hub.docker.com/r/linuxserver/sonarr) o [Jackett](https://hub.docker.com/r/linuxserver/jackett).
+
+Estos contenedores de [linuxserver.io](https://www.linuxserver.io/) son muy populares por su facilidad de uso y actualizaciones frecuentes. Así puedes experimentar, analizar o descargar sin miedo a comprometer tu sistema operativo principal. ¡Todo queda dentro del contenedor!
+
 
 ---
 
