@@ -24,9 +24,9 @@ Este evento no hubiera sido posible sin el apoyo de [Lemoncode](https://lemoncod
 - [💾 Y cómo guardo los datos](#-y-cómo-guardo-los-datos)
 - [🧩 Docker Compose](#-docker-compose)
 - [🧠 IA, IA everywhere 🚀](#-ia-ia-everywhere-)
-    - [Ask Gordon](#ask-gordon)
-    - [🤖 IA > Docker Model Runner](#-ia--docker-model-runner)
-    - [Sección `models` en Docker Compose](#sección-modelsen-docker-compose)
+    - [✨ Ask Gordon](#ask-gordon)
+    - [🤖 Docker Model Runner](#-docker-model-runner)
+    - [🧩🧠 Sección `models` en Docker Compose](#sección-modelsen-docker-compose)
 - [✨ Otros usos](#-otros-usos)
     - [💻 Dev Containers](#dev-containers)
     - [Entornos aislados para evitar infecciones](#entornos-aislados-para-evitar)
@@ -318,7 +318,7 @@ O incluso si tienes tu propio MCP Server dockerizado, como el mio que te permite
 docker ai "Puedes buscarme algunos vídeos de YouTube sobre Docker en returngis"
 ```
 
-#### 🤖 IA > Docker Model Runner
+#### 🤖 Docker Model Runner
 
 Además de ejecutar aplicaciones, Docker también te permite ejecutar modelos de IA en contenedores. Esto es especialmente útil para modelos que requieren muchos recursos o memoria. Puedes usar el comando `docker model run` para ejecutar modelos de IA predefinidos.
 
