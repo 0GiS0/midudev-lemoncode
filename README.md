@@ -319,7 +319,7 @@ docker ai "Puedes buscarme algunos vídeos de YouTube sobre Docker en returngis"
 ```
 
 >[!IMPORTANT]
->He subido mi propio MCP Server a Docker Hub para que puedas probarlo. Puedes encontrarlo en [0gis0/youtube-mcp-server](https://hub.docker.com/r/0gis0/youtube-mcp-server). Para que este funcione debes copiar el `.env-sample` a `.env` y añadir tu API key de YouTube. En el `.env-sample` tienes la URL de donde debes ir para generar tu API key.
+>He subido mi propio MCP Server a Docker Hub para que puedas probarlo. Puedes encontrarlo en [0gis0/youtube-mcp-server](https://hub.docker.com/r/0gis0/youtube-mcp-server) ¡Ya lo he dejado modificado en el archivo `gordon-mcp.yml`. Para que este funcione debes copiar el `.env-sample` a `.env` y añadir tu API key de YouTube. En el `.env-sample` tienes la URL de donde debes ir para generar tu API key.
 
 #### 🤖 Docker Model Runner
 
