@@ -2,6 +2,6 @@ services:
   time:
     image: mcp/time
   youtube:
-    image: youtube-mcp-server
+    image: 0gis0/youtube-mcp-server
     environment:
       - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
