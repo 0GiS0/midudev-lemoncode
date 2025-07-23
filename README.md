@@ -304,7 +304,7 @@ O incluso, por qué no, podemos pedirle que nos de recomendaciones para mejorar 
 docker ai "¿Puedes darme recomendaciones para mejorar la seguridad de la imagen heroes-api?"
 ```
 
-Y lo chulo de todo esto es que además puedes integrar Gordon con tus MCP Servers para que pueda acceder a más información 😱 y darte respuestas más precisas. Incluso haciendo uso del archivo [gordon-mcp.yml](gordon-mcp.yml) que tienes en este repo, puedes configurar un MCP Server para que Gordon pueda acceder a más datos y mejorar sus respuestas.
+Y lo chulo de todo esto es que además puedes integrar Gordon con tus MCP Servers para que pueda acceder a más información 😱 y darte respuestas más precisas. Incluso haciendo uso del archivo [gordon-mcp.yml](gordon-mcp.yml) 🤓! que tienes en este repo, puedes configurar un MCP Server para que Gordon pueda acceder a más datos y mejorar sus respuestas.
 
 Como preguntarle la hora actual en Madrid:
 
